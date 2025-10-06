@@ -33,6 +33,7 @@ class BrandViewSet(viewsets.ModelViewSet):
 
     queryset = Brand.objects.all()
     serializer_class = BrandSerializer #new serializer added
+    print(queryset)
 
     def list(self, request):
         serializer = BrandSerializer(self.queryset, many=True)
