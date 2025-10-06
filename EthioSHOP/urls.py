@@ -10,6 +10,6 @@ router.register(r'category', views.CategoryViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('product.urls')),  # Include product app URLs
-    path('api/', include(router.urls)),  # Include router URLs
+    # path('api/', include(router.urls)),  # Include router URLs
 ]
 
