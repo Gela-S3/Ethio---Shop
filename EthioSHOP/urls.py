@@ -11,3 +11,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('product.urls')),  # Include product app URLs
 ]
+
