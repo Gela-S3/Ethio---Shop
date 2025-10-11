@@ -1,15 +1,11 @@
 from django.contrib import admin
-from django.urls import path, include 
-
-from rest_framework.routers import DefaultRouter
-from product import views
-
-router = DefaultRouter()
-router.register(r'category', views.CategoryViewSet)
+from django.urls import path, include
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('product.urls')),  # Include product app URLs
-    # path('api/', include(router.urls)),  # Include router URLs
+    path("admin/", admin.site.urls),
+    path("api/", include("product.urls")),
+    # JWT auth endpoints
+    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]
-
